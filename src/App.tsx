@@ -1,8 +1,19 @@
 import React from 'react';
 import logo from './logo.svg';
+import { Gin } from './gin';
 import './App.css';
 
 const App: React.FC = () => {
+  let a = new Gin()
+  
+  a.setListener((msg: string, state: any) => {
+    
+  })
+  a.deal()
+  let hand = a.getState().hand
+  hand.sortCardsRankSuit(hand.getCards())
+  console.log(hand)
+  
   return (
     <div className="App">
       <header className="App-header">
