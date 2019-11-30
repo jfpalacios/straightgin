@@ -13,7 +13,7 @@ const SortableCard = SortableElement(Card);
 
 const SortableList = SortableContainer((props: any) => {
   return (
-    <div>
+    <div className="card-container">
       {props.items.map((card: any, index: number) => (
         <SortableCard
           key={`item-${card.rank}-${card.suit}`}
@@ -33,33 +33,30 @@ const App: React.FC = () => {
   gin.deal();
 
   const [cards, setCards] = useState(p1.getCards());
-  const onSortEnd = ({ oldIndex, newIndex }: any) => {
-    let container = document.getElementsByClassName("card-container")[0]
-      .children[0];
-    for (let i = 0; i < cards.length; i++) {
-      container.children[i].classList.remove("increase");
-    }
+  const onSortEnd = ({ oldIndex, newIndex }: any, e: any) => {
     setCards(arrayMove(cards, oldIndex, newIndex));
   };
+  let dragElement: any;
+  let cardContainerTop: any;
 
   return (
-    <div className="card-container">
+    <div className="center">
       <SortableList
         helperClass="card--dragging"
         axis="xy"
         items={cards}
-        onSortEnd={onSortEnd}
-        onSortOver={({ newIndex }: any) => {
-          let container = document.getElementsByClassName("card-container")[0]
-            .children[0];
-          for (let i = 0; i < cards.length; i++) {
-            if (i > newIndex || newIndex == 0) {
-              container.children[i].classList.add("increase");
-            } else {
-              container.children[i].classList.remove("increase");
-            }
-          }
+        onSortMove={(event: any) => {
+          // if (!dragElement || !cardContainerTop) {
+          //   dragElement = document.getElementsByClassName("card--dragging")[0];
+          //   cardContainerTop = document.getElementsByClassName("card-container")[0].getBoundingClientRect().top;
+          // } 
+          // let rect = dragElement.getBoundingClientRect();
+ 
+          // if (cardContainerTop - rect.top > rect.height ) {
+          //   console.log("past")
+          // }
         }}
+        onSortEnd={onSortEnd}
       />
     </div>
   );
