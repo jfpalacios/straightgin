@@ -13,8 +13,8 @@ const Events: { [key: string]: string } = {
   PLAYER_1_DISCARD: "PLAYER_1_DISCARD",
   PLAYER_0_TURN: "PLAYER_0_TURN",
   PLAYER_1_TURN: "PLAYER_1_TURN",
-  PLAYER_0_WIN: "PLAYER_0_TURN",
-  PLAYER_1_WIN: "PLAYER_1_TURN"
+  PLAYER_0_WIN: "PLAYER_0_WIN",
+  PLAYER_1_WIN: "PLAYER_1_WIN"
 };
 
 class Gin {

@@ -1,37 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Gin } from './gin';
-import './App.css';
+import React from "react";
+import Card from "./components/Card";
+
+import "./App.css";
 
 const App: React.FC = () => {
-  let a = new Gin()
-  
-  a.setListener((msg: string, state: any) => {
-    
-  })
-  a.deal()
-  let hand = a.getState().hand
-  hand.sortCardsRankSuit(hand.getCards())
-  console.log(hand)
-  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={{ display: "flex" }}>
+      {Array.from(new Array(4)).map((e, i) => {
+        return (
+          <div>
+            {Array.from(new Array(13)).map((e, j) => {
+              return <Card Rank={j + 1} Suit={i} />;
+            })}
+          </div>
+        );
+      })}
     </div>
   );
-}
+};
 
 export default App;

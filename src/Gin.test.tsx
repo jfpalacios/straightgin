@@ -97,15 +97,20 @@ it("Discards and Draws", () => {
   }
 });
 
-// it("Ends game", () => {
-//   gin.deal();
-//   expect(lastState.isActiveGame).toBeTruthy()
+it("Ends game", () => {
+  gin.deal();
+  expect(lastState.isActiveGame).toBeTruthy();
 
-//   for(var i = 0; i < 11; i++) {
-//     gin.playerHands[0].cards[i].rank = i + 1
-//     gin.playerHands[0].cards[i].suit = 1
-//   }
+  for (var i = 0; i < 11; i++) {
+    gin.playerHands[0].cards[i].rank = i + 1;
+    gin.playerHands[0].cards[i].suit = 1;
+  }
 
-//   let meldSet = p0.goGin(p0.getCards()[0])
-  
-// })
+  p0.goGin(p0.getCards()[0]);
+  expect(lastState.winner).toEqual(0);
+  expect(lastEvent).toEqual("PLAYER_0_WIN");
+  expect(lastState.isActiveGame).toBeFalsy()
+  expect(lastState.losingHand).toHaveProperty("deadwood")
+  expect(lastState.losingHand).toHaveProperty("deadwoodPoints")
+  expect(lastState.losingHand).toHaveProperty("melds")
+});

@@ -1,0 +1,318 @@
+.card {
+  zoom:0.60;
+    -moz-transform:scale(0.60);
+    -moz-transform-origin: 0 0;
+}
+
+.d_3 {
+  background: url('../assets/carddeck.png') no-repeat -4px -4px;
+  width: 196px;
+  height: 273px;
+}
+
+.d_10 {
+  background: url('../assets/carddeck.png') no-repeat -206px -4px;
+  width: 196px;
+  height: 273px;
+}
+
+.h_4 {
+  background: url('../assets/carddeck.png') no-repeat -408px -4px;
+  width: 196px;
+  height: 273px;
+}
+
+.h_11 {
+  background: url('../assets/carddeck.png') no-repeat -610px -4px;
+  width: 196px;
+  height: 273px;
+}
+
+.s_5 {
+  background: url('../assets/carddeck.png') no-repeat -812px -4px;
+  width: 196px;
+  height: 273px;
+}
+
+.s_11 {
+  background: url('../assets/carddeck.png') no-repeat -1014px -4px;
+  width: 196px;
+  height: 273px;
+}
+
+.c_10 {
+  background: url('../assets/carddeck.png') no-repeat -4px -283px;
+  width: 196px;
+  height: 273px;
+}
+
+.d_4 {
+  background: url('../assets/carddeck.png') no-repeat -206px -283px;
+  width: 196px;
+  height: 273px;
+}
+
+.d_11 {
+  background: url('../assets/carddeck.png') no-repeat -408px -283px;
+  width: 196px;
+  height: 273px;
+}
+
+.h_5 {
+  background: url('../assets/carddeck.png') no-repeat -610px -283px;
+  width: 196px;
+  height: 273px;
+}
+
+.h_12 {
+  background: url('../assets/carddeck.png') no-repeat -812px -283px;
+  width: 196px;
+  height: 273px;
+}
+
+.s_6 {
+  background: url('../assets/carddeck.png') no-repeat -1014px -283px;
+  width: 196px;
+  height: 273px;
+}
+
+.s_12 {
+  background: url('../assets/carddeck.png') no-repeat -1216px -283px;
+  width: 196px;
+  height: 273px;
+}
+
+.c_5 {
+  background: url('../assets/carddeck.png') no-repeat -4px -562px;
+  width: 196px;
+  height: 273px;
+}
+
+.c_11 {
+  background: url('../assets/carddeck.png') no-repeat -206px -562px;
+  width: 196px;
+  height: 273px;
+}
+
+.d_5 {
+  background: url('../assets/carddeck.png') no-repeat -408px -562px;
+  width: 196px;
+  height: 273px;
+}
+
+.d_12 {
+  background: url('../assets/carddeck.png') no-repeat -610px -562px;
+  width: 196px;
+  height: 273px;
+}
+
+.h_6 {
+  background: url('../assets/carddeck.png') no-repeat -812px -562px;
+  width: 196px;
+  height: 273px;
+}
+
+.h_13 {
+  background: url('../assets/carddeck.png') no-repeat -1014px -562px;
+  width: 196px;
+  height: 273px;
+}
+
+.s_7 {
+  background: url('../assets/carddeck.png') no-repeat -1216px -562px;
+  width: 196px;
+  height: 273px;
+}
+
+.s_13 {
+  background: url('../assets/carddeck.png') no-repeat -1418px -562px;
+  width: 196px;
+  height: 273px;
+}
+
+.c_1 {
+  background: url('../assets/carddeck.png') no-repeat -4px -841px;
+  width: 196px;
+  height: 273px;
+}
+
+.c_6 {
+  background: url('../assets/carddeck.png') no-repeat -206px -841px;
+  width: 196px;
+  height: 273px;
+}
+
+.c_12 {
+  background: url('../assets/carddeck.png') no-repeat -408px -841px;
+  width: 196px;
+  height: 273px;
+}
+
+.d_6 {
+  background: url('../assets/carddeck.png') no-repeat -610px -841px;
+  width: 196px;
+  height: 273px;
+}
+
+.d_13 {
+  background: url('../assets/carddeck.png') no-repeat -812px -841px;
+  width: 196px;
+  height: 273px;
+}
+
+.h_7 {
+  background: url('../assets/carddeck.png') no-repeat -1014px -841px;
+  width: 196px;
+  height: 273px;
+}
+
+.s_1 {
+  background: url('../assets/carddeck.png') no-repeat -1216px -841px;
+  width: 196px;
+  height: 273px;
+}
+
+.s_8 {
+  background: url('../assets/carddeck.png') no-repeat -1418px -841px;
+  width: 196px;
+  height: 273px;
+}
+
+
+.c_2 {
+  background: url('../assets/carddeck.png') no-repeat -206px -1120px;
+  width: 196px;
+  height: 273px;
+}
+
+.c_7 {
+  background: url('../assets/carddeck.png') no-repeat -408px -1120px;
+  width: 196px;
+  height: 273px;
+}
+
+.c_13 {
+  background: url('../assets/carddeck.png') no-repeat -610px -1120px;
+  width: 196px;
+  height: 273px;
+}
+
+.d_7 {
+  background: url('../assets/carddeck.png') no-repeat -812px -1120px;
+  width: 196px;
+  height: 273px;
+}
+
+.h_1 {
+  background: url('../assets/carddeck.png') no-repeat -1014px -1120px;
+  width: 196px;
+  height: 273px;
+}
+
+.h_8 {
+  background: url('../assets/carddeck.png') no-repeat -1216px -1120px;
+  width: 196px;
+  height: 273px;
+}
+
+.s_2 {
+  background: url('../assets/carddeck.png') no-repeat -1418px -1120px;
+  width: 196px;
+  height: 273px;
+}
+
+.s_9 {
+  background: url('../assets/carddeck.png') no-repeat -1620px -1120px;
+  width: 196px;
+  height: 273px;
+}
+
+.c_3 {
+  background: url('../assets/carddeck.png') no-repeat -408px -1399px;
+  width: 196px;
+  height: 273px;
+}
+
+.c_8 {
+  background: url('../assets/carddeck.png') no-repeat -610px -1399px;
+  width: 196px;
+  height: 273px;
+}
+
+.d_1 {
+  background: url('../assets/carddeck.png') no-repeat -812px -1399px;
+  width: 196px;
+  height: 273px;
+}
+
+.d_8 {
+  background: url('../assets/carddeck.png') no-repeat -1014px -1399px;
+  width: 196px;
+  height: 273px;
+}
+
+.h_2 {
+  background: url('../assets/carddeck.png') no-repeat -1216px -1399px;
+  width: 196px;
+  height: 273px;
+}
+
+.h_9 {
+  background: url('../assets/carddeck.png') no-repeat -1418px -1399px;
+  width: 196px;
+  height: 273px;
+}
+
+.s_3 {
+  background: url('../assets/carddeck.png') no-repeat -1620px -1399px;
+  width: 196px;
+  height: 273px;
+}
+
+.s_10 {
+  background: url('../assets/carddeck.png') no-repeat -1822px -1399px;
+  width: 196px;
+  height: 273px;
+}
+
+.c_4 {
+  background: url('../assets/carddeck.png') no-repeat -610px -1678px;
+  width: 196px;
+  height: 273px;
+}
+
+.c_9 {
+  background: url('../assets/carddeck.png') no-repeat -812px -1678px;
+  width: 196px;
+  height: 273px;
+}
+
+.d_2 {
+  background: url('../assets/carddeck.png') no-repeat -1014px -1678px;
+  width: 196px;
+  height: 273px;
+}
+
+.d_9 {
+  background: url('../assets/carddeck.png') no-repeat -1216px -1678px;
+  width: 196px;
+  height: 273px;
+}
+
+.h_3 {
+  background: url('../assets/carddeck.png') no-repeat -1418px -1678px;
+  width: 196px;
+  height: 273px;
+}
+
+.h_10 {
+  background: url('../assets/carddeck.png') no-repeat -1620px -1678px;
+  width: 196px;
+  height: 273px;
+}
+
+.s_4 {
+  background: url('../assets/carddeck.png') no-repeat -1822px -1678px;
+  width: 196px;
+  height: 273px;
+}
