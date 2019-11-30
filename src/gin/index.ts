@@ -210,4 +210,4 @@ class Gin {
   }
 }
 
-export { Gin };
+export default Gin;

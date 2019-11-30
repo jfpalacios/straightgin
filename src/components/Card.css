@@ -1,318 +1,223 @@
+$ratio = 0.5
 .card {
-  zoom:0.60;
-    -moz-transform:scale(0.60);
-    -moz-transform-origin: 0 0;
+  display: inline-block;
 }
 
+.inner {
+  border: none;
+  width: calc(196px / 2);
+  height: calc(273px / 2);
+  max-width: 100%;
+  max-height: 100%;
+  background-size: 1024px 1024px!important;
+}
 .d_3 {
-  background: url('../assets/carddeck.png') no-repeat -4px -4px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-4px * $ratio) calc(-4px * $ratio);
+  
 }
 
 .d_10 {
-  background: url('../assets/carddeck.png') no-repeat -206px -4px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-206px * $ratio) calc(-4px * $ratio);
+  
 }
 
 .h_4 {
-  background: url('../assets/carddeck.png') no-repeat -408px -4px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-408px * $ratio) calc(-4px * $ratio);
 }
 
 .h_11 {
-  background: url('../assets/carddeck.png') no-repeat -610px -4px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-610px * $ratio) calc(-4px * $ratio);
 }
 
 .s_5 {
-  background: url('../assets/carddeck.png') no-repeat -812px -4px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-812px * $ratio) calc(-4px * $ratio);
 }
 
 .s_11 {
-  background: url('../assets/carddeck.png') no-repeat -1014px -4px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-1014px * $ratio) calc(-4px * $ratio);
 }
 
 .c_10 {
-  background: url('../assets/carddeck.png') no-repeat -4px -283px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-4px * $ratio) calc(-283px * $ratio);
 }
 
 .d_4 {
-  background: url('../assets/carddeck.png') no-repeat -206px -283px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-206px * $ratio) calc(-283px * $ratio);
 }
 
 .d_11 {
-  background: url('../assets/carddeck.png') no-repeat -408px -283px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-408px * $ratio) calc(-283px * $ratio);
 }
 
 .h_5 {
-  background: url('../assets/carddeck.png') no-repeat -610px -283px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-610px * $ratio) calc(-283px * $ratio);
 }
 
 .h_12 {
-  background: url('../assets/carddeck.png') no-repeat -812px -283px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-812px * $ratio) calc(-283px * $ratio);
 }
 
 .s_6 {
-  background: url('../assets/carddeck.png') no-repeat -1014px -283px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-1014px * $ratio) calc(-283px * $ratio);
 }
 
 .s_12 {
-  background: url('../assets/carddeck.png') no-repeat -1216px -283px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-1216px * $ratio) calc(-283px * $ratio);
 }
 
 .c_5 {
-  background: url('../assets/carddeck.png') no-repeat -4px -562px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-4px * $ratio) calc(-562px * $ratio);
 }
 
 .c_11 {
-  background: url('../assets/carddeck.png') no-repeat -206px -562px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-206px * $ratio) calc(-562px * $ratio);
 }
 
 .d_5 {
-  background: url('../assets/carddeck.png') no-repeat -408px -562px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-408px * $ratio) calc(-562px * $ratio);
 }
 
 .d_12 {
-  background: url('../assets/carddeck.png') no-repeat -610px -562px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-610px * $ratio) calc(-562px * $ratio);
 }
 
 .h_6 {
-  background: url('../assets/carddeck.png') no-repeat -812px -562px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-812px * $ratio) calc(-562px * $ratio);
 }
 
 .h_13 {
-  background: url('../assets/carddeck.png') no-repeat -1014px -562px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-1014px * $ratio) calc(-562px * $ratio);
 }
 
 .s_7 {
-  background: url('../assets/carddeck.png') no-repeat -1216px -562px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-1216px * $ratio) calc(-562px * $ratio);
 }
 
 .s_13 {
-  background: url('../assets/carddeck.png') no-repeat -1418px -562px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-1418px * $ratio) calc(-562px * $ratio);
 }
 
 .c_1 {
-  background: url('../assets/carddeck.png') no-repeat -4px -841px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-4px * $ratio) calc(-841px * $ratio);
 }
 
 .c_6 {
-  background: url('../assets/carddeck.png') no-repeat -206px -841px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-206px * $ratio) calc(-841px * $ratio);
 }
 
 .c_12 {
-  background: url('../assets/carddeck.png') no-repeat -408px -841px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-408px * $ratio) calc(-841px * $ratio);
 }
 
 .d_6 {
-  background: url('../assets/carddeck.png') no-repeat -610px -841px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-610px * $ratio) calc(-841px * $ratio);
 }
 
 .d_13 {
-  background: url('../assets/carddeck.png') no-repeat -812px -841px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-812px * $ratio) calc(-841px * $ratio);
 }
 
 .h_7 {
-  background: url('../assets/carddeck.png') no-repeat -1014px -841px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-1014px * $ratio) calc(-841px * $ratio);
 }
 
 .s_1 {
-  background: url('../assets/carddeck.png') no-repeat -1216px -841px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-1216px * $ratio) calc(-841px * $ratio);
 }
 
 .s_8 {
-  background: url('../assets/carddeck.png') no-repeat -1418px -841px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-1418px * $ratio) calc(-841px * $ratio);
 }
 
 
 .c_2 {
-  background: url('../assets/carddeck.png') no-repeat -206px -1120px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-206px * $ratio) calc(-1120px * $ratio);
 }
 
 .c_7 {
-  background: url('../assets/carddeck.png') no-repeat -408px -1120px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-408px * $ratio) calc(-1120px * $ratio);
 }
 
 .c_13 {
-  background: url('../assets/carddeck.png') no-repeat -610px -1120px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-610px * $ratio) calc(-1120px * $ratio);
 }
 
 .d_7 {
-  background: url('../assets/carddeck.png') no-repeat -812px -1120px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-812px * $ratio) calc(-1120px * $ratio);
 }
 
 .h_1 {
-  background: url('../assets/carddeck.png') no-repeat -1014px -1120px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-1014px * $ratio) calc(-1120px * $ratio);
 }
 
 .h_8 {
-  background: url('../assets/carddeck.png') no-repeat -1216px -1120px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-1216px * $ratio) calc(-1120px * $ratio);
 }
 
 .s_2 {
-  background: url('../assets/carddeck.png') no-repeat -1418px -1120px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-1418px * $ratio) calc(-1120px * $ratio);
 }
 
 .s_9 {
-  background: url('../assets/carddeck.png') no-repeat -1620px -1120px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-1620px * $ratio) calc(-1120px * $ratio);
 }
 
 .c_3 {
-  background: url('../assets/carddeck.png') no-repeat -408px -1399px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-408px * $ratio) calc(-1399px * $ratio);
 }
 
 .c_8 {
-  background: url('../assets/carddeck.png') no-repeat -610px -1399px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-610px * $ratio) calc(-1399px * $ratio);
 }
 
 .d_1 {
-  background: url('../assets/carddeck.png') no-repeat -812px -1399px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-812px * $ratio) calc(-1399px * $ratio);
 }
 
 .d_8 {
-  background: url('../assets/carddeck.png') no-repeat -1014px -1399px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-1014px * $ratio) calc(-1399px * $ratio);
 }
 
 .h_2 {
-  background: url('../assets/carddeck.png') no-repeat -1216px -1399px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-1216px * $ratio) calc(-1399px * $ratio);
 }
 
 .h_9 {
-  background: url('../assets/carddeck.png') no-repeat -1418px -1399px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-1418px * $ratio) calc(-1399px * $ratio);
 }
 
 .s_3 {
-  background: url('../assets/carddeck.png') no-repeat -1620px -1399px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-1620px * $ratio) calc(-1399px * $ratio);
 }
 
 .s_10 {
-  background: url('../assets/carddeck.png') no-repeat -1822px -1399px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-1822px * $ratio) calc(-1399px * $ratio);
 }
 
 .c_4 {
-  background: url('../assets/carddeck.png') no-repeat -610px -1678px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-610px * $ratio) calc(-1678px * $ratio);
 }
 
 .c_9 {
-  background: url('../assets/carddeck.png') no-repeat -812px -1678px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-812px * $ratio) calc(-1678px * $ratio);
 }
 
 .d_2 {
-  background: url('../assets/carddeck.png') no-repeat -1014px -1678px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-1014px * $ratio) calc(-1678px * $ratio);
 }
 
 .d_9 {
-  background: url('../assets/carddeck.png') no-repeat -1216px -1678px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-1216px * $ratio) calc(-1678px * $ratio);
 }
 
 .h_3 {
-  background: url('../assets/carddeck.png') no-repeat -1418px -1678px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-1418px * $ratio) calc(-1678px * $ratio);
 }
 
 .h_10 {
-  background: url('../assets/carddeck.png') no-repeat -1620px -1678px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-1620px * $ratio) calc(-1678px * $ratio);
 }
 
 .s_4 {
-  background: url('../assets/carddeck.png') no-repeat -1822px -1678px;
-  width: 196px;
-  height: 273px;
+  background: url('../assets/carddeck.png') no-repeat calc(-1822px * $ratio) calc(-1678px * $ratio);
 }

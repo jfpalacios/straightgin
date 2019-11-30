@@ -1,5 +1,5 @@
 import React from "react";
-import "./Card.css";
+import "./Card.scss";
 import { number } from "prop-types";
 
 interface CardProps {
@@ -24,7 +24,11 @@ const Card: React.FC<CardProps> = ({ Rank, Suit }) => {
       break;
   }
 
-  return <div className={`card ${suitName}_${Rank}`}></div>;
+  return (
+    <div className="card">
+      <div className={`inner ${suitName}_${Rank}`}></div>
+    </div>
+  );
 };
 
 export default Card;
