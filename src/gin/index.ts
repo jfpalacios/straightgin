@@ -1,50 +1,54 @@
-import { Card } from "./Card";
-import { Hand } from "./Hand";
-import { Deck } from "./Deck";
+import { Card } from './Card';
+import { Hand } from './Hand';
+import { Deck } from './Deck';
+// import { EncryptedDeck } from './EncryptedDeck';
 
-const Events: { [key: string]: string } = {
-  DEAL: "DEAL",
-  READY: "READY",
-  PLAYER_0_DRAW_DECK: "PLAYER_0_DRAW_DECK",
-  PLAYER_0_DRAW_DISCARD: "PLAYER_0_DRAW_DISCARD",
-  PLAYER_1_DRAW_DECK: "PLAYER_1_DRAW_DECK",
-  PLAYER_1_DRAW_DISCARD: "PLAYER_1_DRAW_DISCARD",
-  PLAYER_0_DISCARD: "PLAYER_0_DISCARD",
-  PLAYER_1_DISCARD: "PLAYER_1_DISCARD",
-  PLAYER_0_TURN: "PLAYER_0_TURN",
-  PLAYER_1_TURN: "PLAYER_1_TURN",
-  PLAYER_0_WIN: "PLAYER_0_WIN",
-  PLAYER_1_WIN: "PLAYER_1_WIN"
+const GameEvents: { [key: string]: string } = {
+  DEAL: 'DEAL',
+  READY: 'READY',
+  DRAW: 'DRAW',
+  PLAYER_0_DRAW_DECK: 'PLAYER_0_DRAW_DECK',
+  PLAYER_0_DRAW_DISCARD: 'PLAYER_0_DRAW_DISCARD',
+  PLAYER_1_DRAW_DECK: 'PLAYER_1_DRAW_DECK',
+  PLAYER_1_DRAW_DISCARD: 'PLAYER_1_DRAW_DISCARD',
+  PLAYER_0_DISCARD: 'PLAYER_0_DISCARD',
+  PLAYER_1_DISCARD: 'PLAYER_1_DISCARD',
+  PLAYER_0_TURN: 'PLAYER_0_TURN',
+  PLAYER_1_TURN: 'PLAYER_1_TURN',
+  PLAYER_0_WIN: 'PLAYER_0_WIN',
+  PLAYER_1_WIN: 'PLAYER_1_WIN'
 };
 
 class Gin {
   private playerCount = 0;
-  private playerHands: Hand[] = [new Hand(), new Hand()];
+  private playerHands: Hand[] = [new Hand(), new Hand(), new Hand()];
   private discardPile: Card[] = [];
   private deck = new Deck();
+  // private encryptedDeck = new EncryptedDeck();
   private hasDrawn = false;
   private listeners: any[] = [];
+  private watchers: any[] = [];
+
   private currentPlayer = 0;
   private startingPlayer = 0;
   private isActiveGame = false;
-  private score = [0, 0]
+  public score = [0, 0];
+  private currentGame = 0;
+
   constructor() {
     return this;
   }
 
   addPlayer(cb: Function) {
     if (this.playerCount === 2) {
-      throw new Error("2 Players have already been registered");
+      throw new Error('2 Players have already been registered');
     }
 
     let player = this.playerCount;
-    this.listeners.push([
-      cb,
-      (event: string) => ({ event, state: this.getState(player) })
-    ]);
+    this.listeners.push([cb, player]);
     this.playerCount++;
     if (this.playerCount === 2) {
-      this.publishEvent(Events.READY);
+      this.publishEvent(GameEvents.READY);
     }
 
     return {
@@ -59,35 +63,48 @@ class Gin {
     };
   }
 
+  subscribe(cb: Function) {
+    this.watchers.push([cb, -1]);
+  }
+
   getState(player: number) {
     return {
+      player,
       isActiveGame: this.isActiveGame,
       currentPlayer: this.currentPlayer,
       startingPlayer: this.startingPlayer,
       hasDrawn: this.hasDrawn,
       discardPile: this.topOfPile,
       hand: this.playerHands[player].getCards(),
+      handObject: this.playerHands[player]
     };
   }
 
-  nextGame() {
-    if (this.isActiveGame) {
-      throw new Error("endGame before starting a new game");
+  getGameState() {
+    return {
+      isActiveGame: this.isActiveGame,
+      currentPlayer: this.currentPlayer,
+      startingPlayer: this.startingPlayer,
+      hasDrawn: this.hasDrawn,
+      discardPile: this.topOfPile
     }
+  }
 
+  resetGame() {
+    this.isActiveGame = false;
     this.startingPlayer = this.startingPlayer === 0 ? 1 : 0;
     this.currentPlayer = this.startingPlayer;
-    this.playerHands = [new Hand(), new Hand()];
+    this.playerHands = [new Hand(), new Hand(), new Hand()];
     this.discardPile = [];
     this.deck = new Deck();
-    this.hasDrawn = false;
+    this.hasDrawn = true;
 
-    this.publishEvent(Events.READY);
+    this.publishEvent(GameEvents.READY);
   }
 
   deal() {
     if (this.isActiveGame) {
-      throw new Error("Cannot deal until nextGame");
+      throw new Error('Cannot deal until nextGame');
     }
 
     this.isActiveGame = true;
@@ -100,10 +117,10 @@ class Gin {
     );
 
     this.playerHands[1].addCards(
-      this.deck.dealN(this.currentPlayer === 0 ? 10 : 10)
+      this.deck.dealN(this.currentPlayer === 0 ? 10 : 11)
     );
 
-    this.publishEvent(Events.DEAL);
+    this.publishEvent(GameEvents.DEAL);
   }
 
   get topOfPile() {
@@ -115,7 +132,7 @@ class Gin {
   }
 
   draw({ fromDiscard }: any, player: number): Card | undefined {
-    this.checkTurn(player)
+    this.checkTurn(player);
 
     if (this.hasDrawn) {
       throw new Error(`PLAYER_${this.currentPlayer} has already drawn`);
@@ -129,15 +146,15 @@ class Gin {
 
     this.hasDrawn = true;
     let key = `PLAYER_${this.currentPlayer}_DRAW_${
-      fromDiscard ? "DISCARD" : "DECK"
+      fromDiscard ? 'DISCARD' : 'DECK'
     }`;
-    this.publishEvent(Events[key]);
+    this.publishEvent(GameEvents[key]);
 
     return card;
   }
 
   discard(card: Card, player: number) {
-    this.checkTurn(player)
+    this.checkTurn(player);
 
     if (!this.hasDrawn) {
       throw new Error("Player hasn't drawn, unable to discard");
@@ -148,29 +165,35 @@ class Gin {
     this.discardPile.push(card);
 
     this.hasDrawn = false;
-    this.publishEvent(Events[`PLAYER_${this.currentPlayer}_DISCARD`]);
+    this.publishEvent(GameEvents[`PLAYER_${this.currentPlayer}_DISCARD`]);
     this.currentPlayer = this.currentPlayer === 0 ? 1 : 0;
-    this.publishEvent(Events[`PLAYER_${this.currentPlayer}_TURN`]);
+
+    if (!this.deck.length) {
+      this.publishEvent(GameEvents.DRAW);
+      return;
+    }
+
+    this.publishEvent(GameEvents[`PLAYER_${this.currentPlayer}_TURN`]);
   }
 
   goGin(card: Card, player: number) {
-    this.checkTurn(player)
+    this.checkTurn(player);
 
     if (!this.hasDrawn) {
       throw new Error("Player hasn't drawn, unable to go gin");
     }
 
-    const playerHand = this.playerHands[this.currentPlayer];
+    const playerHand = this.playerHands[player];
     let hand = playerHand.goGin(card);
     if (!hand) {
-      throw new Error("Invalid gin hand");
+      return false;
     }
 
-    let otherPlayer = this.currentPlayer === 0 ? 1 : 0
+    let otherPlayer = this.currentPlayer === 0 ? 1 : 0;
     let losingHand = this.playerHands[otherPlayer].getBestHand();
-    
+
     this.isActiveGame = false;
-    this.score[this.currentPlayer] += losingHand.deadwoodPoints
+    this.score[this.currentPlayer] += losingHand.deadwoodPoints;
     this.publishWinner(player, hand, losingHand);
 
     return hand;
@@ -178,8 +201,24 @@ class Gin {
 
   private publishWinner(winner: number, winningHand: any, losingHand: any) {
     let event = `PLAYER_${this.currentPlayer}_WIN`;
-    this.listeners.forEach(([cb, stateFn]) => {
-      let result = stateFn(event);
+    let self = this;
+
+    this.watchers.forEach(function([cb]: any) {
+      let result: any = { event, state: self.getGameState() };
+      result.state = {
+        ...result.state,
+        winner,
+        winnerPointsGained: losingHand.deadwoodPoints,
+        winningHand,
+        losingHand,
+        score: self.score
+      };
+
+      cb(result);
+    }, this);
+
+    this.listeners.forEach(([cb, player]) => {
+      let result: any = { event, state: this.getState(player) };
       result.state = {
         ...result.state,
         winner,
@@ -189,13 +228,13 @@ class Gin {
         score: this.score
       };
 
-      cb(result)
+      cb(result);
     });
   }
 
   private checkTurn(player: number) {
-    if(!this.isActiveGame) {
-      throw new Error("Game is not active");
+    if (!this.isActiveGame) {
+      throw new Error('Game is not active');
     }
 
     if (this.currentPlayer !== player) {
@@ -206,7 +245,15 @@ class Gin {
   }
 
   private publishEvent(event: string) {
-    this.listeners.forEach(([cb, stateFn]) => cb(stateFn(event)));
+    let self = this;
+
+    this.watchers.forEach(function([cb]: any) {
+      return cb({ event, state: self.getGameState() });
+    }, this);
+
+    this.listeners.forEach(function([cb, player]: any) {
+      return cb({ event, state: self.getState(player) });
+    }, this);
   }
 }
 

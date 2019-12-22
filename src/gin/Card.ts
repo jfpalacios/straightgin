@@ -16,10 +16,12 @@ class Card {
   public index: number = 0;
   readonly rank: number;
   readonly suit: number;
+  readonly id: number;
   private name: string;
   constructor(rank: number, suit: Suit) {
     this.rank = rank;
     this.suit = suit;
+    this.id = ((suit - 1) * 13) + rank;
     this.name = this.toString();
   }
 

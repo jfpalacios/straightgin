@@ -1,65 +1,164 @@
-/* tslint:disable */
-
-import React, { useState } from "react";
-import { SortableContainer, SortableElement } from "react-sortable-hoc";
-import arrayMove from "array-move";
+import React from "react";
 
 import Gin from "./gin";
-import Card from "./components/Card";
+import EasyComputer from "./gin/ai/EasyComputer";
+
+import { Card } from "./gin/Card";
+import Cards from "./Cards";
+import DiscardPile from "./DiscardPile";
+import DrawPile from "./DrawPile";
 
 import "./App.css";
 
-const SortableCard = SortableElement(Card);
-
-const SortableList = SortableContainer((props: any) => {
-  return (
-    <div className="card-container">
-      {props.items.map((card: any, index: number) => (
-        <SortableCard
-          key={`item-${card.rank}-${card.suit}`}
-          index={index}
-          Rank={card.rank}
-          Suit={card.suit}
-        />
-      ))}
-    </div>
-  );
-});
-
-const App: React.FC = () => {
-  let gin = new Gin();
-  let p1 = gin.addPlayer(() => {});
-  let p2 = gin.addPlayer(() => {});
-  gin.deal();
-
-  const [cards, setCards] = useState(p1.getCards());
-  const onSortEnd = ({ oldIndex, newIndex }: any, e: any) => {
-    setCards(arrayMove(cards, oldIndex, newIndex));
+class App extends React.Component {
+  state: any = {
+    cards: [],
+    isGinning: false,
+    gameState: {
+      discardPile: null
+    }
   };
-  let dragElement: any;
-  let cardContainerTop: any;
 
-  return (
-    <div className="center">
-      <SortableList
-        helperClass="card--dragging"
-        axis="xy"
-        items={cards}
-        onSortMove={(event: any) => {
-          // if (!dragElement || !cardContainerTop) {
-          //   dragElement = document.getElementsByClassName("card--dragging")[0];
-          //   cardContainerTop = document.getElementsByClassName("card-container")[0].getBoundingClientRect().top;
-          // } 
-          // let rect = dragElement.getBoundingClientRect();
- 
-          // if (cardContainerTop - rect.top > rect.height ) {
-          //   console.log("past")
-          // }
-        }}
-        onSortEnd={onSortEnd}
-      />
-    </div>
-  );
-};
+  controls: any;
+
+  updateCards = (cards: any) => {
+    this.setState({ cards });
+  };
+
+  handleSort = (cards: any) => {
+    this.updateCards(cards);
+  };
+
+  handleStart = () => {
+    let gin = new Gin();
+    gin.subscribe(({ event, state }: any) => {
+      console.log(event, state);
+    });
+
+    this.controls = gin.addPlayer(({ event, state }: any) => {
+      this.setState({
+        gameState: state,
+        error: false
+      });
+
+      if (event == "DEAL") {
+        this.updateCards(state.hand);
+      } else if (
+        event == "PLAYER_0_DRAW_DISCARD" ||
+        event == "PLAYER_0_DRAW_DECK"
+      ) {
+        this.setState({
+          cards: this.state.cards.concat(state.hand[state.hand.length - 1])
+        });
+      }
+    });
+
+    let computer = new EasyComputer();
+    let computerControls = gin.addPlayer(computer.listener.bind(computer));
+    computer.registerHandlers(computerControls);
+    gin.deal();
+  };
+
+  handleDiscard = (card: Card, index: number) => {
+    if (this.isTurn() && this.state.gameState.hasDrawn) {
+      if (this.state.isGinning) {
+        if (this.controls.goGin(card)) {
+        } else {
+          this.setState({ isGinning: false, error: "Invalid gin hand." });
+        }
+      } else {
+        this.setState({
+          cards: this.state.cards.filter((card: Card, i: number) => {
+            return index !== i;
+          })
+        });
+        this.controls.discard(card);
+      }
+    }
+  };
+
+  handleDrawDeck = () => {
+    if (this.isTurn() && !this.state.gameState.hasDrawn) {
+      this.controls.drawFromDeck();
+    }
+  };
+
+  handleDrawDiscard = (event: any) => {
+    if (this.isTurn() && !this.state.gameState.hasDrawn) {
+      this.controls.drawFromDiscard();
+    }
+  };
+
+  isTurn = () => {
+    return this.state.gameState.currentPlayer === 0;
+  };
+
+  getPrompt = () => {
+    const state = this.state.gameState;
+    if (!state.isActiveGame) {
+      return "";
+    }
+
+    if (state.currentPlayer == 0) {
+      if (this.state.isGinning) {
+        return "Discard deadwood";
+      }
+
+      if (state.hasDrawn) {
+        return "Your turn to discard";
+      } else {
+        return "Your turn to draw from pile or deck";
+      }
+    } else {
+      return "Computer thinking...";
+    }
+  };
+
+  handleEnterGin = () => {
+    if (this.state.gameState.hasDrawn) {
+      this.setState({ isGinning: true });
+    }
+  };
+
+  render() {
+    return (
+      <div className="container">
+        <div>
+          <button onClick={this.handleStart}>
+            {this.state.gameState.isActiveGame ? "Restart" : "Start"}
+          </button>
+        </div>
+        <div className="play-area">
+          <DiscardPile
+            onDraw={this.handleDrawDiscard}
+            card={this.state.gameState.discardPile}
+          />
+          <DrawPile
+            onDraw={this.handleDrawDeck}
+            hasCard={this.state.gameState.isActiveGame}
+          />
+        </div>
+        {this.state.gameState.isActiveGame && (
+          <div className="cards">
+            <div className="instructions">
+              {this.state.error} {this.getPrompt()}
+              {this.state.gameState.hasDrawn && (
+                <button className="go-gin-button" onClick={this.handleEnterGin}>
+                  Go Gin
+                </button>
+              )}
+            </div>
+
+            <Cards
+              cards={this.state.cards}
+              onSort={this.handleSort}
+              onDragOut={this.handleDiscard}
+            />
+          </div>
+        )}
+      </div>
+    );
+  }
+}
 
 export default App;

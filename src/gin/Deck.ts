@@ -1,4 +1,4 @@
-import { Card, Suit } from "./Card";
+import { Card, Suit } from './Card';
 
 class Deck {
   static ranks = Array.from(new Array(13), (_, i) => i + 1);
@@ -34,7 +34,7 @@ class Deck {
 
   dealN(n: number) {
     if (n > this.cards.length) {
-      throw new Error("Insufficient cards remaining");
+      return [];
     }
 
     return this.cards.splice(0, n);

@@ -9,7 +9,11 @@ class Hand {
     return this.cards;
   }
 
-  addCards(cards: Card[] | Card) {
+  addCards(cards: Card[] | Card | null) {
+    if (!cards) {
+      return 
+    }
+    
     if (Array.isArray(cards)) {
       this.cards = this.cards.concat(cards);
     } else {
