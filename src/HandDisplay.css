@@ -1,0 +1,12 @@
+.meld-sets {
+  display: flex;
+}
+
+.meld-set {
+  display: flex;
+  margin-right: 20px;
+}
+
+.deadwood {
+  display: flex;
+}

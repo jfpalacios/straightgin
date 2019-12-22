@@ -1,14 +1,15 @@
-import React from "react";
+import React from 'react';
 
-import Gin from "./gin";
-import EasyComputer from "./gin/ai/EasyComputer";
+import Gin from './gin';
+import EasyComputer from './gin/ai/EasyComputer';
 
-import { Card } from "./gin/Card";
-import Cards from "./Cards";
-import DiscardPile from "./DiscardPile";
-import DrawPile from "./DrawPile";
+import { Card } from './gin/Card';
+import Cards from './Cards';
+import DiscardPile from './DiscardPile';
+import DrawPile from './DrawPile';
+import HandDisplay from './HandDisplay';
 
-import "./App.css";
+import './App.css';
 
 class App extends React.Component {
   state: any = {
@@ -41,11 +42,11 @@ class App extends React.Component {
         error: false
       });
 
-      if (event == "DEAL") {
+      if (event == 'DEAL') {
         this.updateCards(state.hand);
       } else if (
-        event == "PLAYER_0_DRAW_DISCARD" ||
-        event == "PLAYER_0_DRAW_DECK"
+        event == 'PLAYER_0_DRAW_DISCARD' ||
+        event == 'PLAYER_0_DRAW_DECK'
       ) {
         this.setState({
           cards: this.state.cards.concat(state.hand[state.hand.length - 1])
@@ -63,8 +64,9 @@ class App extends React.Component {
     if (this.isTurn() && this.state.gameState.hasDrawn) {
       if (this.state.isGinning) {
         if (this.controls.goGin(card)) {
+          this.setState({ isGinning: false });
         } else {
-          this.setState({ isGinning: false, error: "Invalid gin hand." });
+          this.setState({ isGinning: false, error: 'Invalid gin hand.' });
         }
       } else {
         this.setState({
@@ -96,21 +98,21 @@ class App extends React.Component {
   getPrompt = () => {
     const state = this.state.gameState;
     if (!state.isActiveGame) {
-      return "";
+      return '';
     }
 
     if (state.currentPlayer == 0) {
       if (this.state.isGinning) {
-        return "Discard deadwood";
+        return 'Discard deadwood';
       }
 
       if (state.hasDrawn) {
-        return "Your turn to discard";
+        return 'Your turn to discard';
       } else {
-        return "Your turn to draw from pile or deck";
+        return 'Your turn to draw from pile or deck';
       }
     } else {
-      return "Computer thinking...";
+      return 'Computer thinking...';
     }
   };
 
@@ -121,24 +123,25 @@ class App extends React.Component {
   };
 
   render() {
+    const isActive = this.state.gameState.isActiveGame;
+
     return (
       <div className="container">
         <div>
           <button onClick={this.handleStart}>
-            {this.state.gameState.isActiveGame ? "Restart" : "Start"}
+            {this.state.gameState.isActiveGame ? 'Restart' : 'Start'}
           </button>
         </div>
-        <div className="play-area">
-          <DiscardPile
-            onDraw={this.handleDrawDiscard}
-            card={this.state.gameState.discardPile}
-          />
-          <DrawPile
-            onDraw={this.handleDrawDeck}
-            hasCard={this.state.gameState.isActiveGame}
-          />
-        </div>
-        {this.state.gameState.isActiveGame && (
+        {isActive && (
+          <div className="play-area">
+            <DiscardPile
+              onDraw={this.handleDrawDiscard}
+              card={this.state.gameState.discardPile}
+            />
+            <DrawPile onDraw={this.handleDrawDeck} hasCard={isActive} />
+          </div>
+        )}
+        {isActive && (
           <div className="cards">
             <div className="instructions">
               {this.state.error} {this.getPrompt()}
@@ -148,12 +151,18 @@ class App extends React.Component {
                 </button>
               )}
             </div>
-
             <Cards
               cards={this.state.cards}
               onSort={this.handleSort}
               onDragOut={this.handleDiscard}
             />
+          </div>
+        )}
+        {!isActive && this.state.gameState.losingHand && (
+          <div className="cards">
+            <HandDisplay hand={this.state.gameState.losingHand} />
+            <div className="instructions">Game Over</div>
+            <HandDisplay hand={this.state.gameState.winningHand} />
           </div>
         )}
       </div>

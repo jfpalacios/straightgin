@@ -87,7 +87,7 @@ class Gin {
       startingPlayer: this.startingPlayer,
       hasDrawn: this.hasDrawn,
       discardPile: this.topOfPile
-    }
+    };
   }
 
   resetGame() {

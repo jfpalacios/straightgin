@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import { Card } from "./gin/Card";
-import CardElement from "./components/Card";
+import { Card } from './gin/Card';
+import CardElement from './components/Card';
 
 type DiscardPileProps = {
 	card: Card;

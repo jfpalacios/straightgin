@@ -1,31 +1,36 @@
-import React from "react";
-import "./Card.scss";
-import { number } from "prop-types";
+import React from 'react';
+import './Card.scss';
+import { number } from 'prop-types';
 
 interface CardProps {
   Rank: number;
   Suit: number;
+  className?: string;
 }
 
-const Card: React.FC<CardProps> = ({ Rank, Suit }) => {
-  let suitName: string = "s";
+const Card: React.FC<CardProps> = ({ Rank, Suit, className }) => {
+  let suitName: string = 's';
   switch (Suit) {
     case 1:
-      suitName = "s";
+      suitName = 's';
       break;
     case 2:
-      suitName = "h";
+      suitName = 'h';
       break;
     case 3:
-      suitName = "d";
+      suitName = 'd';
       break;
     case 4:
-      suitName = "c";
+      suitName = 'c';
       break;
+  }
+  let cx = 'card';
+  if (className) {
+    cx += ' ' + className;
   }
 
   return (
-    <div className="card">
+    <div className={cx}>
       <div className={`inner ${suitName}_${Rank}`}></div>
     </div>
   );

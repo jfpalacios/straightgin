@@ -24,8 +24,13 @@
       }
       cursor: pointer;
     }
+
     .card-separated {
-      width: (196px * $ratio)!important;
+      width: (196px * $ratio) !important;
+    }
+
+    .card-tight {
+      width: 196px * $ratio * ($cardOverlap / 2);
     }
 
     .card:last-child {
@@ -44,262 +49,262 @@
     }
 
     .d_3 {
-      background: url("../assets/carddeck.png") no-repeat (-4px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-4px * $ratio)
         (-4px * $ratio);
     }
 
     .d_10 {
-      background: url("../assets/carddeck.png") no-repeat (-206px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-206px * $ratio)
         (-4px * $ratio);
     }
 
     .h_4 {
-      background: url("../assets/carddeck.png") no-repeat (-408px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-408px * $ratio)
         (-4px * $ratio);
     }
 
     .h_11 {
-      background: url("../assets/carddeck.png") no-repeat (-610px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-610px * $ratio)
         (-4px * $ratio);
     }
 
     .s_5 {
-      background: url("../assets/carddeck.png") no-repeat (-812px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-812px * $ratio)
         (-4px * $ratio);
     }
 
     .s_11 {
-      background: url("../assets/carddeck.png") no-repeat (-1014px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-1014px * $ratio)
         (-4px * $ratio);
     }
 
     .c_10 {
-      background: url("../assets/carddeck.png") no-repeat (-4px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-4px * $ratio)
         (-283px * $ratio);
     }
 
     .d_4 {
-      background: url("../assets/carddeck.png") no-repeat (-206px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-206px * $ratio)
         (-283px * $ratio);
     }
 
     .d_11 {
-      background: url("../assets/carddeck.png") no-repeat (-408px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-408px * $ratio)
         (-283px * $ratio);
     }
 
     .h_5 {
-      background: url("../assets/carddeck.png") no-repeat (-610px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-610px * $ratio)
         (-283px * $ratio);
     }
 
     .h_12 {
-      background: url("../assets/carddeck.png") no-repeat (-812px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-812px * $ratio)
         (-283px * $ratio);
     }
 
     .s_6 {
-      background: url("../assets/carddeck.png") no-repeat (-1014px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-1014px * $ratio)
         (-283px * $ratio);
     }
 
     .s_12 {
-      background: url("../assets/carddeck.png") no-repeat (-1216px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-1216px * $ratio)
         (-283px * $ratio);
     }
 
     .c_5 {
-      background: url("../assets/carddeck.png") no-repeat (-4px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-4px * $ratio)
         (-562px * $ratio);
     }
 
     .c_11 {
-      background: url("../assets/carddeck.png") no-repeat (-206px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-206px * $ratio)
         (-562px * $ratio);
     }
 
     .d_5 {
-      background: url("../assets/carddeck.png") no-repeat (-408px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-408px * $ratio)
         (-562px * $ratio);
     }
 
     .d_12 {
-      background: url("../assets/carddeck.png") no-repeat (-610px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-610px * $ratio)
         (-562px * $ratio);
     }
 
     .h_6 {
-      background: url("../assets/carddeck.png") no-repeat (-812px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-812px * $ratio)
         (-562px * $ratio);
     }
 
     .h_13 {
-      background: url("../assets/carddeck.png") no-repeat (-1014px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-1014px * $ratio)
         (-562px * $ratio);
     }
 
     .s_7 {
-      background: url("../assets/carddeck.png") no-repeat (-1216px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-1216px * $ratio)
         (-562px * $ratio);
     }
 
     .s_13 {
-      background: url("../assets/carddeck.png") no-repeat (-1418px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-1418px * $ratio)
         (-562px * $ratio);
     }
 
     .c_1 {
-      background: url("../assets/carddeck.png") no-repeat (-4px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-4px * $ratio)
         (-841px * $ratio);
     }
 
     .c_6 {
-      background: url("../assets/carddeck.png") no-repeat (-206px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-206px * $ratio)
         (-841px * $ratio);
     }
 
     .c_12 {
-      background: url("../assets/carddeck.png") no-repeat (-408px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-408px * $ratio)
         (-841px * $ratio);
     }
 
     .d_6 {
-      background: url("../assets/carddeck.png") no-repeat (-610px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-610px * $ratio)
         (-841px * $ratio);
     }
 
     .d_13 {
-      background: url("../assets/carddeck.png") no-repeat (-812px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-812px * $ratio)
         (-841px * $ratio);
     }
 
     .h_7 {
-      background: url("../assets/carddeck.png") no-repeat (-1014px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-1014px * $ratio)
         (-841px * $ratio);
     }
 
     .s_1 {
-      background: url("../assets/carddeck.png") no-repeat (-1216px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-1216px * $ratio)
         (-841px * $ratio);
     }
 
     .s_8 {
-      background: url("../assets/carddeck.png") no-repeat (-1418px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-1418px * $ratio)
         (-841px * $ratio);
     }
 
     .c_2 {
-      background: url("../assets/carddeck.png") no-repeat (-206px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-206px * $ratio)
         (-1120px * $ratio);
     }
 
     .c_7 {
-      background: url("../assets/carddeck.png") no-repeat (-408px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-408px * $ratio)
         (-1120px * $ratio);
     }
 
     .c_13 {
-      background: url("../assets/carddeck.png") no-repeat (-610px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-610px * $ratio)
         (-1120px * $ratio);
     }
 
     .d_7 {
-      background: url("../assets/carddeck.png") no-repeat (-812px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-812px * $ratio)
         (-1120px * $ratio);
     }
 
     .h_1 {
-      background: url("../assets/carddeck.png") no-repeat (-1014px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-1014px * $ratio)
         (-1120px * $ratio);
     }
 
     .h_8 {
-      background: url("../assets/carddeck.png") no-repeat (-1216px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-1216px * $ratio)
         (-1120px * $ratio);
     }
 
     .s_2 {
-      background: url("../assets/carddeck.png") no-repeat (-1418px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-1418px * $ratio)
         (-1120px * $ratio);
     }
 
     .s_9 {
-      background: url("../assets/carddeck.png") no-repeat (-1620px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-1620px * $ratio)
         (-1120px * $ratio);
     }
 
     .c_3 {
-      background: url("../assets/carddeck.png") no-repeat (-408px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-408px * $ratio)
         (-1399px * $ratio);
     }
 
     .c_8 {
-      background: url("../assets/carddeck.png") no-repeat (-610px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-610px * $ratio)
         (-1399px * $ratio);
     }
 
     .d_1 {
-      background: url("../assets/carddeck.png") no-repeat (-812px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-812px * $ratio)
         (-1399px * $ratio);
     }
 
     .d_8 {
-      background: url("../assets/carddeck.png") no-repeat (-1014px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-1014px * $ratio)
         (-1399px * $ratio);
     }
 
     .h_2 {
-      background: url("../assets/carddeck.png") no-repeat (-1216px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-1216px * $ratio)
         (-1399px * $ratio);
     }
 
     .h_9 {
-      background: url("../assets/carddeck.png") no-repeat (-1418px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-1418px * $ratio)
         (-1399px * $ratio);
     }
 
     .s_3 {
-      background: url("../assets/carddeck.png") no-repeat (-1620px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-1620px * $ratio)
         (-1399px * $ratio);
     }
 
     .s_10 {
-      background: url("../assets/carddeck.png") no-repeat (-1822px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-1822px * $ratio)
         (-1399px * $ratio);
     }
 
     .c_4 {
-      background: url("../assets/carddeck.png") no-repeat (-610px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-610px * $ratio)
         (-1678px * $ratio);
     }
 
     .c_9 {
-      background: url("../assets/carddeck.png") no-repeat (-812px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-812px * $ratio)
         (-1678px * $ratio);
     }
 
     .d_2 {
-      background: url("../assets/carddeck.png") no-repeat (-1014px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-1014px * $ratio)
         (-1678px * $ratio);
     }
 
     .d_9 {
-      background: url("../assets/carddeck.png") no-repeat (-1216px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-1216px * $ratio)
         (-1678px * $ratio);
     }
 
     .h_3 {
-      background: url("../assets/carddeck.png") no-repeat (-1418px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-1418px * $ratio)
         (-1678px * $ratio);
     }
 
     .h_10 {
-      background: url("../assets/carddeck.png") no-repeat (-1620px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-1620px * $ratio)
         (-1678px * $ratio);
     }
 
     .s_4 {
-      background: url("../assets/carddeck.png") no-repeat (-1822px * $ratio)
+      background: url('../assets/carddeck.png') no-repeat (-1822px * $ratio)
         (-1678px * $ratio);
     }
   }
